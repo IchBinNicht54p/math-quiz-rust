@@ -1,6 +1,9 @@
 use std::io::{self, Write};
 use rand::RngExt;
 
+const MIN_NUMBER_SIZE: i32 = 0;
+const MAX_NUMBER_SIZE: i32 = 12;
+
 fn main() {
     let mut rng = rand::rng();
     let mut correctly_answered: u16 = 0;
@@ -12,7 +15,7 @@ fn main() {
     for i in 0..question_amount {
         print!("{i}/{question_amount}: ");
 
-        let answer: (bool, i32) = question(rng.random_range(0..12), rng.random_range(0..12), symbols[rng.random_range(0..symbols.len())]);
+        let answer: (bool, i32) = question(rng.random_range(MIN_NUMBER_SIZE..MAX_NUMBER_SIZE), rng.random_range(MIN_NUMBER_SIZE..MAX_NUMBER_SIZE), symbols[rng.random_range(0..symbols.len())]);
 
         if answer.0 {
             println!("well done you answered correctly!");
