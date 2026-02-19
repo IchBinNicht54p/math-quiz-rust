@@ -35,9 +35,7 @@ fn question(a: i32, b: i32, symbol: char) -> (bool, i32) {
     let _ = io::stdout().flush();
     io::stdin().read_line(&mut input).expect("failed to read stdin");
 
-    input.pop();
-
-    let n: i32 = input.parse().expect("please input a valid base 10 value");
+    let n: i32 = input.trim().parse().expect("please input a valid base 10 value");
 
     match symbol {
         '+' => answer = a + b,
